@@ -2,7 +2,6 @@ import random
 import time
 import sys
 import tweepy
-import credentials
 from os import environ
 
 
@@ -23,8 +22,13 @@ def tweet_quote():
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret_key)
     auth.set_access_token(access_token, access_token_secret)
     api = tweepy.API(auth)
-    tweet = get_random_quote()
-    api.update_status(tweet)
+    
+    while True:
+        print('Getting quote...')
+        tweet = get_random_quote()
+        api.update_status(tweet)
+        print('And now we wait!!')
+        time.sleep(interval)
     
 if __name__ == "__main__":
     tweet_quote()

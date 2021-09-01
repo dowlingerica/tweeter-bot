@@ -4,6 +4,10 @@ import sys
 import tweepy
 from os import environ
 
+consumer_key = environ['API_KEY']
+consumer_secret_key = environ['API_SECRET_KEY']
+access_token = environ['ACCESS_TOKEN']
+access_token_secret = environ['ACCESS_TOKEN_SECRET']
 
 def get_quotes():
     with open('anders.txt') as f:
